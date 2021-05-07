@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject POI;
-
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
 
-    private void Follow()
+    // Update is called once per frame
+    void Update()
     {
-
+        
     }
 }

@@ -4,31 +4,15 @@ using UnityEngine;
 
 public class POI : MonoBehaviour
 {
-    public GameObject[] players;
-    public List<GameObject> activePlayers;
-
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        activePlayers.Clear();
-
-        foreach (GameObject player in players)
-        {
-            if (player.activeInHierarchy)
-                activePlayers.Add(player);
-        }
-
-        FindMidPoint();
+        
     }
 
-    private void FindMidPoint()
+    // Update is called once per frame
+    void Update()
     {
-        Vector3 tempV3 = new Vector3(0, 0, 0);
-
-        foreach (GameObject player in activePlayers)
-        {
-            tempV3 += player.transform.position;
-        }
-
-        this.transform.position = tempV3 / activePlayers.Count;
+        
     }
 }
