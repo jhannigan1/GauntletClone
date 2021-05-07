@@ -6,14 +6,14 @@ public class BasePlayer : MonoBehaviour
 {
     //override floats in children
     //reference class discord
-    int playerSpeed = 10;
-    int playerHealth = 100;
-    int playerScore;
-    int keys;
-    int potions;
+    public int playerSpeed;
+    public int playerHealth;
+    public int playerScore;
+    public int keys;
+    public int potions;
 
 
-    Vector3 currentPlayerPos;
+    public Vector3 currentPlayerPos;
 
 
     // Start is called before the first frame update
@@ -26,10 +26,6 @@ public class BasePlayer : MonoBehaviour
     void Update()
     {
         PlayerMove();
-        if (playerHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     /// <summary>
@@ -37,32 +33,32 @@ public class BasePlayer : MonoBehaviour
     /// Includes base player movement
     /// Both Keyboard and Controller options
     /// </summary>
-    void PlayerMove()
+    public void PlayerMove()
     {
         currentPlayerPos = transform.position;
 
         //keyboard option
         if (Input.GetKey("a"))
         {
-            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("d"))
         {
-            currentPlayerPos += Vector3.right * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.right * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("s"))
         {
-            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("w"))
         {
-            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed * 2;
         }
         //once we know the proper controlls, we can change the key. For now, I'm using "e" to test
         if(Input.GetKey("e") && potions >= 1)
         {
             potions--;
-            Debug.Log("Potion Was Used");
+            //Debug.Log("Potion Was Used");
         }
 
 
@@ -71,25 +67,25 @@ public class BasePlayer : MonoBehaviour
         //Debug.Log("Vertical Input: " + Input.GetAxis("Vertical"));
         if (Input.GetAxis("Vertical") >= .01)
         {
-            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetAxis("Vertical") <= -.01)
         {
-            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetAxis("Horizontal") >= .01)
         {
-            currentPlayerPos += Vector3.right* Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.right* Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetAxis("Horizontal") <= -.01)
         {
-            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed * 2;
         }
         //again, just using a random button to test this control
         if (Input.GetButton("Fire1") && potions >=1)
         {
             potions--;
-            Debug.Log("Potion Was Used");
+            //Debug.Log("Potion Was Used");
         }
         transform.position = currentPlayerPos;
     }
@@ -107,19 +103,19 @@ public class BasePlayer : MonoBehaviour
         {
             Destroy(collision.other.gameObject);
             keys++;
-            Debug.Log("Keys: " + keys);
+            //Debug.Log("Keys: " + keys);
         }
         if (collision.other.name.StartsWith("Door") && keys >= 1)
         {
             Destroy(collision.other.gameObject);
             keys--;
-            Debug.Log("Keys: " + keys);
+            //Debug.Log("Keys: " + keys);
         }
         if (collision.other.name.StartsWith("Food"))
         {
             Destroy(collision.other.gameObject);
             playerHealth = playerHealth + 10;
-            Debug.Log("Health: " + playerHealth);
+            //Debug.Log("Health: " + playerHealth);
         }
         if (collision.other.name.StartsWith("Potion"))
         {
@@ -130,7 +126,7 @@ public class BasePlayer : MonoBehaviour
         {
             Destroy(collision.other.gameObject);
             playerScore = playerScore + 10;
-            Debug.Log("Score: " + playerScore);
+            //Debug.Log("Score: " + playerScore);
         }
     }
 }
