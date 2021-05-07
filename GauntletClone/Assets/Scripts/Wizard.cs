@@ -13,7 +13,6 @@ public class Wizard : BasePlayer
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        
     }
-
 }
