@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int health = 100;
+    public float speed = 1f;
+    public bool onScreen = false;
+
+    private Renderer _renderer;
+
+    private void Awake()
     {
-        
+        _renderer = GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        OnScreenCheck();
+        if (onScreen == true)
+            Chase();
+    }
+
+    private void Chase()
+    {
+        print("onScreen");
+    }
+
+    private void OnScreenCheck()
+    {
+        if (_renderer.isVisible)
+            onScreen = true;
+        else
+            onScreen = false;
     }
 }
