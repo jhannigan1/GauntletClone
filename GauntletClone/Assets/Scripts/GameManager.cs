@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager GM;
+
+    public GameObject[] players;
+    public List<GameObject> activePlayers;
+
+    private void Awake()
     {
-        
+        GM = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        activePlayers.Clear();
+
+        foreach (GameObject player in players)
+        {
+            if (player.activeInHierarchy)
+                activePlayers.Add(player);
+        }        
     }
 }
