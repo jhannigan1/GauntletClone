@@ -7,6 +7,7 @@ public class POI : MonoBehaviour
     public GameObject[] players;
     public List<GameObject> activePlayers;
 
+    //Keeps a list of which players are active
     private void Update()
     {
         activePlayers.Clear();
@@ -20,6 +21,7 @@ public class POI : MonoBehaviour
         FindMidPoint();
     }
 
+    //Finds the average position of all active players and moves the POI to it
     private void FindMidPoint()
     {
         Vector3 tempV3 = new Vector3(0, 0, 0);
