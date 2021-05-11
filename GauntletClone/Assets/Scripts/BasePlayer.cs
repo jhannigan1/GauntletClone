@@ -6,11 +6,13 @@ public class BasePlayer : MonoBehaviour
 {
     //override floats in children
     //reference class discord
-    int playerSpeed = 10;
-    int playerHealth = 100;
-    int playerScore;
-    int keys;
-    int potions;
+    public int playerSpeed;
+    public int playerHealth;
+    public int playerScore;
+    public int keys;
+    public int potions;
+
+    public int joysticknum;
 
 
     Vector3 currentPlayerPos;
@@ -37,61 +39,71 @@ public class BasePlayer : MonoBehaviour
     /// Includes base player movement
     /// Both Keyboard and Controller options
     /// </summary>
-    void PlayerMove()
+    public void PlayerMove()
     {
         currentPlayerPos = transform.position;
 
         //keyboard option
         if (Input.GetKey("a"))
         {
-            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("d"))
         {
-            currentPlayerPos += Vector3.right * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.right * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("s"))
         {
-            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed * 2;
         }
         if (Input.GetKey("w"))
         {
-            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed * 2;
         }
-        //once we know the proper controlls, we can change the key. For now, I'm using "e" to test
-        if(Input.GetKey("e") && potions >= 1)
-        {
-            potions--;
-            Debug.Log("Potion Was Used");
-        }
-
 
         //controller option
         //Debug.Log("Horizantal Input: " + Input.GetAxis("Horizontal"));
         //Debug.Log("Vertical Input: " + Input.GetAxis("Vertical"));
-        if (Input.GetAxis("Vertical") >= .01)
+        if (Input.GetAxis("Vertical" + joysticknum.ToString()) >= .01)
         {
-            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.forward * Time.deltaTime * playerSpeed * 2;
         }
-        if (Input.GetAxis("Vertical") <= -.01)
+        if (Input.GetAxis("Vertical" + joysticknum.ToString()) <= -.01)
         {
-            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.back * Time.deltaTime * playerSpeed * 2;
         }
-        if (Input.GetAxis("Horizontal") >= .01)
+        if (Input.GetAxis("Horizontal" + joysticknum.ToString()) >= .01)
         {
-            currentPlayerPos += Vector3.right* Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.right* Time.deltaTime * playerSpeed * 2;
         }
-        if (Input.GetAxis("Horizontal") <= -.01)
+        if (Input.GetAxis("Horizontal" + joysticknum.ToString()) <= -.01)
         {
-            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed;
+            currentPlayerPos += Vector3.left * Time.deltaTime * playerSpeed * 2;
         }
-        //again, just using a random button to test this control
-        if (Input.GetButton("Fire1") && potions >=1)
+        transform.position = currentPlayerPos;
+    }
+
+    public void PlayerAction()
+    {
+        if (Input.GetKey("e") && potions >= 1)
         {
             potions--;
             Debug.Log("Potion Was Used");
         }
-        transform.position = currentPlayerPos;
+
+        if (Input.GetButton("Fire1" + joysticknum.ToString()) && potions >= 1)
+        {
+            potions--;
+            Debug.Log("Potion Was Used");
+        }
+        if(Input.GetButton("Fire2" + joysticknum.ToString()))
+        {
+            Debug.Log("Fire2 Pressed");
+        }
+        if (Input.GetButton("Fire3" + joysticknum.ToString()))
+        {
+            Debug.Log("Fire3 Pressed");
+        }
     }
 
     /// <summary>
