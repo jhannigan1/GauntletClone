@@ -5,32 +5,32 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     public int health = 100;
-    public float speed = 1f;
+    public float speed = 2f;
     public bool onScreen = false;
         
-    private Renderer _renderer;
-    private List<Vector3> playerPositions = new List<Vector3>();
-    private Vector3 chaseVector;
+    protected Renderer _renderer;
+    protected List<Vector3> playerPositions = new List<Vector3>();
+    protected Vector3 chaseVector;
 
-    private void Awake()
+    protected void Awake()
     {
         _renderer = GetComponent<Renderer>();
     }
 
-    private void Update()
+    protected void Update()
     {
         OnScreenCheck();
         if (onScreen == true)
             Chase();
     }
     
-    private void Chase()
+    protected void Chase()
     {
         int arrayPos = FindClosestPlayer();
         transform.position += (playerPositions[arrayPos] - transform.position).normalized * Time.deltaTime * speed;
     }
 
-    private void OnScreenCheck()
+    protected void OnScreenCheck()
     {
         if (_renderer.isVisible)
             onScreen = true;
@@ -38,7 +38,7 @@ public class BaseEnemy : MonoBehaviour
             onScreen = false;
     }
 
-    private int FindClosestPlayer()
+    protected int FindClosestPlayer()
     {
         playerPositions.Clear();
 
@@ -62,5 +62,18 @@ public class BaseEnemy : MonoBehaviour
             last = dist;
         }
         return closest;
+    }
+
+    protected void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "projectile")
+            TakeDamage();
+    }
+
+    protected void TakeDamage()
+    {
+        health -= 50;
+        if (health <= 0)
+            Destroy(this.gameObject);
     }
 }
