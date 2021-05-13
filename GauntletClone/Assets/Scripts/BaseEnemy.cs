@@ -30,6 +30,7 @@ public class BaseEnemy : MonoBehaviour
         transform.position += (playerPositions[arrayPos] - transform.position).normalized * Time.deltaTime * speed;
     }
 
+    //Bugged, always returns true
     protected void OnScreenCheck()
     {
         if (_renderer.isVisible)

@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Demon : BaseEnemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject enemyProjectile;
+    public float fireDelay = 2f;
+    public float projectileSpeed = 10f;
+
+    private void Start()
     {
-        
+        StartCoroutine("Fire");
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Fire()
     {
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(fireDelay);
+
+            Vector3 fireAt = playerPositions[FindClosestPlayer()];
+
+            GameObject clone = Instantiate(enemyProjectile, transform.position, Quaternion.identity);
+            clone.GetComponent<Rigidbody>().useGravity = false;
+            clone.GetComponent<Rigidbody>().velocity = (fireAt - transform.position).normalized * projectileSpeed;
+        }
     }
 }

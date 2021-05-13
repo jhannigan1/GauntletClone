@@ -23,14 +23,15 @@ public class EnemyGenerator : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(spawnDelay);
+        //I thinks renderer.isVisible is bugged in this version of Unity because this always returns true as well
+        while (_renderer.isVisible)
+        {
+            yield return new WaitForSeconds(spawnDelay);
 
-        if (_renderer.isVisible == false)
-            yield break;
-
-        enemyType = ChooseEnemy();
-        spawnPoint = ChooseSpawnPoint();
-        Instantiate(enemyType, (spawnPoint), Quaternion.identity);
+            enemyType = ChooseEnemy();
+            spawnPoint = ChooseSpawnPoint();
+            Instantiate(enemyType, (spawnPoint), Quaternion.identity);
+        }
     }
 
     private GameObject ChooseEnemy()
