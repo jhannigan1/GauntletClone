@@ -16,4 +16,14 @@ public class Warrior : BasePlayer
         PlayerMove();
         PlayerAction();
     }
+
+    public override void SpecialAction()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void NormalAction()
+    {
+        throw new System.NotImplementedException();
+    }
 }

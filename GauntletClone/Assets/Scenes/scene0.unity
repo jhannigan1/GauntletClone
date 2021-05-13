@@ -153,12 +153,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddebaafe30c67ea418a11ff97d7f070d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerHealth: 100
+  playerSpeed: 2
+  playerHealth: 500
   playerScore: 0
   keys: 0
   potions: 0
   joysticknum: 0
+  keyboardOption: 0
+  up: 0
+  down: 0
+  left: 0
+  right: 0
 --- !u!54 &58039280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -242,7 +247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58039278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: 3.38, z: 9.5}
+  m_LocalPosition: {x: -5.7, y: 1.21, z: 9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1221,6 +1226,11 @@ MonoBehaviour:
   keys: 0
   potions: 0
   joysticknum: 0
+  keyboardOption: 0
+  up: 0
+  down: 0
+  left: 0
+  right: 0
 --- !u!54 &512809628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1304,7 +1314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512809626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.04, y: 3.38, z: 6.2123566}
+  m_LocalPosition: {x: -4.04, y: 1.21, z: 6.2123566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1802,6 +1812,11 @@ MonoBehaviour:
   keys: 0
   potions: 0
   joysticknum: 0
+  keyboardOption: 0
+  up: 0
+  down: 0
+  left: 0
+  right: 0
 --- !u!54 &1037155353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1885,7 +1900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037155351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.11, y: 3.38, z: 6.2123566}
+  m_LocalPosition: {x: -7.11, y: 1.21, z: 6.2123566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2009,6 +2024,15 @@ MonoBehaviour:
   keys: 0
   potions: 0
   joysticknum: 0
+  keyboardOption: 1
+  up: 0
+  down: 0
+  left: 0
+  right: 0
+  projectileA: {fileID: 1262616414150173412, guid: 9c950dd31f8088149a7553fa549ffb00,
+    type: 3}
+  projectileB: {fileID: 1262616414150173412, guid: 95afd4be67f65f74a91248139176f39b,
+    type: 3}
 --- !u!54 &1155877461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2023,7 +2047,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1155877462
 CapsuleCollider:
@@ -2092,7 +2116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155877459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: 3.38, z: 6.2123566}
+  m_LocalPosition: {x: 0.99, y: 1.21, z: 6.2123566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
