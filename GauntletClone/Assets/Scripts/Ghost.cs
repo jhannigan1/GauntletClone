@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Ghost : BaseEnemy
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.tag == "player")
+        {
+            TakeDamage();
+            TakeDamage();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.tag == "projectile")
+        {
+            TakeDamage();
+        }
     }
 }
