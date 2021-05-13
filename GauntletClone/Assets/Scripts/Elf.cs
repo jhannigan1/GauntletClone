@@ -45,10 +45,4 @@ public class Elf : BasePlayer
             Instantiate(projectileA, rightInstantiation, Quaternion.identity);
         }
     }
-
-    public override void NormalAction()
-    {
-        Debug.Log("Normal");
-    }
-
 }

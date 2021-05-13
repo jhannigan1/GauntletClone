@@ -14,7 +14,6 @@ abstract public class BasePlayer : MonoBehaviour
     public int potions;
     public int joysticknum;
 
-    float rotateSpeed = 30f;
 
     //in inspector, choose if you want the keyboard option
     //Only one player can use at a time
@@ -25,14 +24,15 @@ abstract public class BasePlayer : MonoBehaviour
     public bool left = false;
     public bool right = false;
 
-    Vector3 currentPlayerPos;
-    
+    public Vector3 currentPlayerPos;
 
+    GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
         currentPlayerPos = transform.position;
+        canvas = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -129,24 +129,25 @@ abstract public class BasePlayer : MonoBehaviour
         transform.position = currentPlayerPos;
     }
 
+    /// <summary>
+    /// PlayerAction
+    /// For using potions and throwing items
+    /// </summary>
+
     public void PlayerAction()
     {
         if (keyboardOption)
         {
             //potions
-            if (Input.GetKeyDown("c") && potions >= 1)
+            if (Input.GetKeyDown("q") && potions >= 1)
             {
                 potions--;
+                ClearEnemies();
             }
             //special
             if (Input.GetKeyDown("space"))
             {
                 SpecialAction();
-            }
-            //normal
-            if (Input.GetKeyDown("e"))
-            {
-                NormalAction();
             }
         }
         
@@ -154,27 +155,17 @@ abstract public class BasePlayer : MonoBehaviour
         if (Input.GetButtonDown("Fire1" + joysticknum.ToString()) && potions >= 1)
         {
             potions--;
+            ClearEnemies();
         }
         //special
         if(Input.GetButtonDown("Fire2" + joysticknum.ToString()))
         {
             SpecialAction();
         }
-        //normal
-        if (Input.GetButtonDown("Fire3" + joysticknum.ToString()))
-        {
-            NormalAction();
-        }
-        //etc
-        if(Input.GetButtonDown("Jump" + joysticknum.ToString()))
-        {
-            Debug.Log("Jump Pressed");
-        }
     }
 
     public abstract void SpecialAction();
 
-    public abstract void NormalAction();
 
     /// <summary>
     /// OnCollisionEnter
@@ -212,7 +203,27 @@ abstract public class BasePlayer : MonoBehaviour
         }
         if (collision.other.name.StartsWith("Exit"))
         {
-            //switch between levels
+            SwitchScenes();
         }
+        if (collision.other.tag == "enemy")
+        {
+            playerHealth = playerHealth - 5;
+        }
+    }
+
+    void ClearEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            GameObject.Destroy(enemy);
+        }
+    }
+
+    void SwitchScenes()
+    {
+        Object.DontDestroyOnLoad(gameObject);
+        Object.DontDestroyOnLoad(canvas);
+        SceneManager.LoadScene(1);
     }
 }
