@@ -50,29 +50,37 @@ public class CanvasManager : MonoBehaviour
     void Update()
     {
         //Warrior
-        warriorHealth.text = "Health: " + warriorPlayer.gameObject.GetComponent<Warrior>().playerHealth;
-        warriorScore.text = "Score: " + warriorPlayer.gameObject.GetComponent<Warrior>().playerScore;
-        warriorKeys.text = "Keys: " + warriorPlayer.gameObject.GetComponent<Warrior>().keys;
-        warriorPotions.text = "Potions: " + warriorPlayer.gameObject.GetComponent<Warrior>().potions;
-
+        if (warriorPlayer != null)
+        {
+            warriorHealth.text = "Health: " + warriorPlayer.gameObject.GetComponent<Warrior>().playerHealth;
+            warriorScore.text = "Score: " + warriorPlayer.gameObject.GetComponent<Warrior>().playerScore;
+            warriorKeys.text = "Keys: " + warriorPlayer.gameObject.GetComponent<Warrior>().keys;
+            warriorPotions.text = "Potions: " + warriorPlayer.gameObject.GetComponent<Warrior>().potions;
+        }
         //Valkyrie
-        valkyrieHealth.text = "Health: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().playerHealth;
-        valkyrieScore.text = "Score: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().playerScore;
-        valkyrieKeys.text = "Keys: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().keys;
-        valkyriePotions.text = "Potions: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().potions;
-
+        if (valkyriePlayer != null)
+        {
+            valkyrieHealth.text = "Health: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().playerHealth;
+            valkyrieScore.text = "Score: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().playerScore;
+            valkyrieKeys.text = "Keys: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().keys;
+            valkyriePotions.text = "Potions: " + valkyriePlayer.gameObject.GetComponent<Valkyrie>().potions;
+        }
         //Wizard
-        wizardHealth.text = "Health: " + wizardPlayer.gameObject.GetComponent<Wizard>().playerHealth;
-        wizardScore.text = "Score: " + wizardPlayer.gameObject.GetComponent<Wizard>().playerScore;
-        wizardKeys.text = "Keys: " + wizardPlayer.gameObject.GetComponent<Wizard>().keys;
-        wizardPotions.text = "Potions: " + wizardPlayer.gameObject.GetComponent<Wizard>().potions;
-
+        if (wizardPlayer != null)
+        {
+            wizardHealth.text = "Health: " + wizardPlayer.gameObject.GetComponent<Wizard>().playerHealth;
+            wizardScore.text = "Score: " + wizardPlayer.gameObject.GetComponent<Wizard>().playerScore;
+            wizardKeys.text = "Keys: " + wizardPlayer.gameObject.GetComponent<Wizard>().keys;
+            wizardPotions.text = "Potions: " + wizardPlayer.gameObject.GetComponent<Wizard>().potions;
+        }
         //Elf
-        elfHealth.text = "Health: " + elfPlayer.gameObject.GetComponent<Elf>().playerHealth;
-        elfScore.text = "Score: " + elfPlayer.gameObject.GetComponent<Elf>().playerScore;
-        elfKeys.text = "Keys: " + elfPlayer.gameObject.GetComponent<Elf>().keys;
-        elfPotions.text = "Potions: " + elfPlayer.gameObject.GetComponent<Elf>().potions;
-
+        if (elfPlayer != null)
+        {
+            elfHealth.text = "Health: " + elfPlayer.gameObject.GetComponent<Elf>().playerHealth;
+            elfScore.text = "Score: " + elfPlayer.gameObject.GetComponent<Elf>().playerScore;
+            elfKeys.text = "Keys: " + elfPlayer.gameObject.GetComponent<Elf>().keys;
+            elfPotions.text = "Potions: " + elfPlayer.gameObject.GetComponent<Elf>().potions;
+        }
         if (warriorPlayer.gameObject.GetComponent<Warrior>().capMet || valkyriePlayer.gameObject.GetComponent<Valkyrie>().capMet
             || wizardPlayer.gameObject.GetComponent<Wizard>().capMet || elfPlayer.gameObject.GetComponent<Elf>().capMet)
         {

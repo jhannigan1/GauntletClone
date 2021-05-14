@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public GameObject[] attachedDoors;
+    public List<GameObject> attachedDoors;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
     {
         foreach (GameObject door in attachedDoors)
         {
-            Destroy(door);
+            Destroy(door.gameObject);
         }
         Destroy(this.gameObject);
     }
