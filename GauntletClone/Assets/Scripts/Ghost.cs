@@ -6,10 +6,9 @@ public class Ghost : BaseEnemy
 {
     new private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "player")
+        if (other.tag == "dontdestroy")
         {
-            TakeDamage();
-            TakeDamage();
+            Destroy(this.gameObject);
         }
 
         if (other.tag == "projectile")
