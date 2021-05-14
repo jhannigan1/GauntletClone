@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DeathEnemy : BaseEnemy
 {
-
+    //No special behavior, disregard
 }

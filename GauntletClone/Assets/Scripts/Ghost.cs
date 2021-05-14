@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghost : BaseEnemy
 {
-    private void OnTriggerEnter(Collider other)
+    new private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "player")
         {
