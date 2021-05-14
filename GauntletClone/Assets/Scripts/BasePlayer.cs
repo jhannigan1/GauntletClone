@@ -243,7 +243,10 @@ abstract public class BasePlayer : MonoBehaviour
         foreach(GameObject dontdestroy in players)
         {
             GameObject.DontDestroyOnLoad(dontdestroy);
+            dontdestroy.transform.position = new Vector3(0, 0, 0);
         }
+        Camera cam = GameObject.FindObjectOfType<Camera>();
+        cam.transform.position = new Vector3(0, 10, 0);
         SceneManager.LoadScene(sceneNumber);
     }
 }
