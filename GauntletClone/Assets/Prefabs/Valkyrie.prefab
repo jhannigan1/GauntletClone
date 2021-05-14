@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8832460262106165056}
   - component: {fileID: 8832460262106165059}
   - component: {fileID: 8832460262106165058}
+  - component: {fileID: 2744937499746368546}
   m_Layer: 0
   m_Name: Valkyrie
   m_TagString: dontdestroy
@@ -138,3 +139,17 @@ MonoBehaviour:
   currentPlayerPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 7585554821696753685, guid: 65949c8601406244f995b2047207e4d5,
     type: 3}
+--- !u!136 &2744937499746368546
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8832460262106165069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5766779
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.022864461, y: 0, z: 0.024761438}

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Warrior : BasePlayer
 {
+    public static Warrior warrior;
+
     public GameObject projectile;
+
+    private void Awake()
+    {
+        warrior = this;
+    }
 
     // Start is called before the first frame update
     void Start()

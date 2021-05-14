@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3417789324501345782}
   - component: {fileID: 3417789324501345781}
   - component: {fileID: 3417789324501345780}
+  - component: {fileID: 878076595704467154}
   m_Layer: 0
   m_Name: Elf
   m_TagString: dontdestroy
@@ -140,3 +141,17 @@ MonoBehaviour:
     type: 3}
   projectileB: {fileID: 1262616414150173412, guid: 95afd4be67f65f74a91248139176f39b,
     type: 3}
+--- !u!136 &878076595704467154
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3417789324501345779}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.63441485
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.018562913, y: 0, z: 0.036607444}

@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Elf : BasePlayer
 {
+    public static Elf elf;
+
     public GameObject projectileA;
     public GameObject projectileB;
+
+    private void Awake()
+    {
+        elf = this;
+    }
 
     // Start is called before the first frame update
     void Start()

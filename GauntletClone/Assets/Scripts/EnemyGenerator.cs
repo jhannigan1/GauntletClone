@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    public int health = 150;
     public float spawnDelay = 2f;
     public GameObject enemyType;
+    public int maxEnemies = 5;
 
     private Renderer _renderer;
     private Vector3 spawnPoint = Vector3.zero;
@@ -37,7 +39,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnDelay);
 
-            if (myEnemies.Count < 5)
+            if (myEnemies.Count < maxEnemies)
             {
                 spawnPoint = ChooseSpawnPoint();
                 GameObject clone = Instantiate(enemyType, (spawnPoint), Quaternion.identity);
@@ -68,5 +70,15 @@ public class EnemyGenerator : MonoBehaviour
                 break;
         }
         return tempV3;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "projectile")
+        {
+            health -= 50;
+            if (health <= 0)
+                Destroy(this.gameObject);
+        }
     }
 }
