@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6195839455377400600}
   - component: {fileID: 1037757526134657237}
   - component: {fileID: 8155568339536711023}
-  - component: {fileID: 2876206210590862348}
   - component: {fileID: 6824710626754965801}
+  - component: {fileID: 4671306570551770706}
   m_Layer: 0
   m_Name: Magic
   m_TagString: projectile
@@ -93,18 +93,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2876206210590862348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7133852013250372293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604ff242ffa0fd0438c70e1f44726518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6824710626754965801
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -121,3 +109,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4671306570551770706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133852013250372293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47df63e2ba02a3e48b3d223d8230fbf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8718760072191732620}
   - component: {fileID: 636834858987385145}
   - component: {fileID: 2083591045090737054}
-  - component: {fileID: -5943520679001632005}
   - component: {fileID: -1151539209520756737}
+  - component: {fileID: 2724094950357949765}
   m_Layer: 0
   m_Name: Axe
   m_TagString: projectile
@@ -94,18 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5943520679001632005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520808844518992133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604ff242ffa0fd0438c70e1f44726518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &-1151539209520756737
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -122,6 +110,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2724094950357949765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520808844518992133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fa49793ea3eea47bc2fe0a597a4dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1788855971472801693
 GameObject:
   m_ObjectHideFlags: 0

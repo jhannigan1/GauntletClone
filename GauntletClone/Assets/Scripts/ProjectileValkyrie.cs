@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileValkyrie : MonoBehaviour
 {
     int projectileSpeed = 20;
 
-    GameObject elfPlayer;
+    GameObject valkyriePlayer;
 
     Vector3 instantiationPoint;
 
@@ -17,23 +17,23 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
-        elfPlayer = GameObject.Find("Elf");
+        valkyriePlayer = GameObject.Find("Valkyrie");
         //saves point of instantiation
         instantiationPoint = transform.position;
         //detects player's position
-        if (elfPlayer.gameObject.GetComponent<Elf>().up == true)
+        if (valkyriePlayer.gameObject.GetComponent<Valkyrie>().up == true)
         {
             projUp = true;
         }
-        if (elfPlayer.gameObject.GetComponent<Elf>().down == true)
+        if (valkyriePlayer.gameObject.GetComponent<Valkyrie>().down == true)
         {
             projDown = true;
         }
-        if (elfPlayer.gameObject.GetComponent<Elf>().left == true)
+        if (valkyriePlayer.gameObject.GetComponent<Valkyrie>().left == true)
         {
             projLeft = true;
         }
-        if (elfPlayer.gameObject.GetComponent<Elf>().right == true)
+        if (valkyriePlayer.gameObject.GetComponent<Valkyrie>().right == true)
         {
             projRight = true;
         }
@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(projUp)
+        if (projUp)
         {
             transform.position += Vector3.forward * Time.deltaTime * projectileSpeed;
         }
@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
             transform.position += Vector3.right * Time.deltaTime * projectileSpeed;
         }
         //self destruct if moves too far away
-        if(transform.position.z <= instantiationPoint.z - 20 || transform.position.z >= instantiationPoint.z + 20)
+        if (transform.position.z <= instantiationPoint.z - 20 || transform.position.z >= instantiationPoint.z + 20)
         {
             Destroy(gameObject);
         }
