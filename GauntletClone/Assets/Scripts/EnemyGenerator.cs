@@ -5,15 +5,24 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public float spawnDelay = 2f;
-    public GameObject[] enemies;
+    public GameObject enemyType;
 
-    private GameObject enemyType;
     private Renderer _renderer;
     private Vector3 spawnPoint = Vector3.zero;
+    private List<GameObject> myEnemies = new List<GameObject>();
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
+    }
+
+    private void Update()
+    {
+        foreach (GameObject enemy in myEnemies)
+        {
+            if (enemy == null)
+                myEnemies.Remove(enemy);
+        }
     }
 
     private void OnBecameVisible()
@@ -23,20 +32,18 @@ public class EnemyGenerator : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        //I thinks renderer.isVisible is bugged in this version of Unity because this always returns true as well
+        //I think renderer.isVisible is bugged because this always returns true as well
         while (_renderer.isVisible)
         {
             yield return new WaitForSeconds(spawnDelay);
 
-            enemyType = ChooseEnemy();
-            spawnPoint = ChooseSpawnPoint();
-            Instantiate(enemyType, (spawnPoint), Quaternion.identity);
+            if (myEnemies.Count < 5)
+            {
+                spawnPoint = ChooseSpawnPoint();
+                GameObject clone = Instantiate(enemyType, (spawnPoint), Quaternion.identity);
+                myEnemies.Add(clone);
+            }
         }
-    }
-
-    private GameObject ChooseEnemy()
-    {
-        return enemies[Random.Range(0, enemies.Length)];
     }
 
     private Vector3 ChooseSpawnPoint()

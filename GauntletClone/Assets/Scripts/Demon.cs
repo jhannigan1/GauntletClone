@@ -8,14 +8,14 @@ public class Demon : BaseEnemy
     public float fireDelay = 2f;
     public float projectileSpeed = 10f;
 
-    private void Start()
+    private void OnBecameVisible()
     {
         StartCoroutine("Fire");
     }
 
     IEnumerator Fire()
     {
-        while (true)
+        while (_renderer.isVisible)
         {
             yield return new WaitForSeconds(fireDelay);
 

@@ -9,19 +9,18 @@ public class Lobber : BaseEnemy
     public float lobHeight = 5f;
     public float lobDistance = 10f;
 
-    private void Start()
+    private void OnBecameVisible()
     {
         StartCoroutine("Fire");
     }
 
     IEnumerator Fire()
     {
-        while (true)
+        while (_renderer.isVisible)
         {
             yield return new WaitForSeconds(fireDelay);
 
             Vector3 fireAt = playerPositions[FindClosestPlayer()];
-            //fireAt.y += lobHeight;
 
             GameObject clone = Instantiate(enemyProjectile, transform.position, Quaternion.identity);
             Rigidbody cloneRigid = clone.GetComponent<Rigidbody>();
