@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Jeffs_Scene.unity
     guid: 23f38d35529037b4a8afd5cbce475817
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: d3e49e9ec8246084f8c4c62103bf4ceb
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 9d4ca4eb03abba94f8e5dca07a7ad7a6
-  - enabled: 1
-    path: Assets/Scenes/TempTest.unity
-    guid: 325d3cf0d315b6c4e808ed96a08fbc68
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
