@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 7933105031756874402}
   - component: {fileID: 7265330015383640095}
   - component: {fileID: 8664153551355278071}
-  - component: {fileID: 7659252102167208002}
+  - component: {fileID: -2999373987259957849}
   m_Layer: 0
   m_Name: Sword
   m_TagString: projectile
@@ -295,7 +295,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7659252102167208002
+--- !u!114 &-2999373987259957849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,6 +304,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7585554821696753685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604ff242ffa0fd0438c70e1f44726518, type: 3}
+  m_Script: {fileID: 11500000, guid: e9e460bba4645d146b4d14e25bf86425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
