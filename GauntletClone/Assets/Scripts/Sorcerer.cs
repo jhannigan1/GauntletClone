@@ -18,11 +18,14 @@ public class Sorcerer : BaseEnemy
 
     IEnumerator Blink()
     {
-        _renderer.enabled = true;
-        _collider.enabled = true;
-        yield return new WaitForSeconds(Random.Range(blinkRateMin, blinkRateMax));
-        _renderer.enabled = false;
-        _collider.enabled = false;
-        yield return new WaitForSeconds(blinkDuration);
+        while (true)
+        {
+            _renderer.enabled = true;
+            _collider.enabled = true;
+            yield return new WaitForSeconds(Random.Range(blinkRateMin, blinkRateMax));
+            _renderer.enabled = false;
+            _collider.enabled = false;
+            yield return new WaitForSeconds(blinkDuration);
+        }
     }
 }
