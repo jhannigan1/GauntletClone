@@ -10,6 +10,7 @@ public class Warrior : BasePlayer
     void Start()
     {
         joysticknum = 4;
+        playerAwakePosition = new Vector3 (0, 0, 0);
     }
 
     // Update is called once per frame

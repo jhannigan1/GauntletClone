@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
+    public Text win;
+
     //Warrior Texts
     public Text warriorHealth;
     public Text warriorScore;
@@ -70,5 +72,11 @@ public class CanvasManager : MonoBehaviour
         elfScore.text = "Score: " + elfPlayer.gameObject.GetComponent<Elf>().playerScore;
         elfKeys.text = "Keys: " + elfPlayer.gameObject.GetComponent<Elf>().keys;
         elfPotions.text = "Potions: " + elfPlayer.gameObject.GetComponent<Elf>().potions;
+
+        if (warriorPlayer.gameObject.GetComponent<Warrior>().capMet || valkyriePlayer.gameObject.GetComponent<Valkyrie>().capMet
+            || wizardPlayer.gameObject.GetComponent<Wizard>().capMet || elfPlayer.gameObject.GetComponent<Elf>().capMet)
+        {
+            win.text = "You Win!";
+        }
     }
 }

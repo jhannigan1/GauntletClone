@@ -14,6 +14,11 @@ abstract public class BasePlayer : MonoBehaviour
     public int potions;
     public int joysticknum;
 
+    //scene
+    int sceneNumber;
+    int sceneCap = 1;
+    public bool capMet;
+
 
     //in inspector, choose if you want the keyboard option
     //Only one player can use at a time
@@ -24,6 +29,7 @@ abstract public class BasePlayer : MonoBehaviour
     public bool left = false;
     public bool right = false;
 
+    public Vector3 playerAwakePosition;
     public Vector3 currentPlayerPos;
 
     GameObject canvas;
@@ -31,7 +37,8 @@ abstract public class BasePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPlayerPos = transform.position;
+        transform.position = playerAwakePosition;
+        playerAwakePosition = transform.position;
         canvas = GameObject.Find("Canvas");
     }
 
@@ -176,36 +183,45 @@ abstract public class BasePlayer : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //not sure why I'm getting these errors here, but it seems to be working so far
-        if (collision.other.name.StartsWith("Key"))
+        if (collision.collider.name.StartsWith("Key"))
         {
-            Destroy(collision.other.gameObject);
+            Destroy(collision.collider.gameObject);
             keys++;
         }
-        if (collision.other.name.StartsWith("Door") && keys >= 1)
+        if (collision.collider.name.StartsWith("Door") && keys >= 1)
         {
-            Destroy(collision.other.gameObject);
+            Destroy(collision.collider.gameObject);
             keys--;
         }
-        if (collision.other.name.StartsWith("Food"))
+        if (collision.collider.name.StartsWith("Food"))
         {
-            Destroy(collision.other.gameObject);
+            Destroy(collision.collider.gameObject);
             playerHealth = playerHealth + 10;
         }
-        if (collision.other.name.StartsWith("Potion"))
+        if (collision.collider.name.StartsWith("Potion"))
         {
-            Destroy(collision.other.gameObject);
+            Destroy(collision.collider.gameObject);
             potions++;
         }
-        if (collision.other.name.StartsWith("Treasure"))
+        if (collision.collider.name.StartsWith("Treasure"))
         {
-            Destroy(collision.other.gameObject);
+            Destroy(collision.collider.gameObject);
             playerScore = playerScore + 10;
         }
-        if (collision.other.name.StartsWith("Exit"))
+        if (collision.collider.name.StartsWith("Exit"))
         {
-            SwitchScenes();
+            Destroy(collision.collider.gameObject);
+            if (sceneNumber <= sceneCap - 1)
+            {
+                sceneNumber++;
+                SwitchScenes();
+            }
+            else
+            {
+                capMet = true;
+            }
         }
-        if (collision.other.tag == "enemy")
+        if (collision.collider.tag == "enemy")
         {
             playerHealth = playerHealth - 5;
         }
@@ -222,8 +238,12 @@ abstract public class BasePlayer : MonoBehaviour
 
     void SwitchScenes()
     {
-        Object.DontDestroyOnLoad(gameObject);
-        Object.DontDestroyOnLoad(canvas);
-        SceneManager.LoadScene(1);
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("dontdestroy");
+        foreach(GameObject dontdestroy in players)
+        {
+            GameObject.DontDestroyOnLoad(dontdestroy);
+        }
+        SceneManager.LoadScene(sceneNumber);
     }
 }

@@ -10,6 +10,7 @@ public class Wizard : BasePlayer
     void Start()
     {
         joysticknum = 3;
+        playerAwakePosition = new Vector3(3, 0, 0);
     }
 
     // Update is called once per frame

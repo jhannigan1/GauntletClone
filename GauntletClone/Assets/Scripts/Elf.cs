@@ -11,6 +11,7 @@ public class Elf : BasePlayer
     void Start()
     {
         joysticknum = 1;
+        playerAwakePosition = new Vector3(6, 0, 0);
     }
 
     // Update is called once per frame
