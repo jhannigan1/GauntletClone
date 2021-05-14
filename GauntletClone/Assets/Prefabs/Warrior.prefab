@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7415519936193646994}
   - component: {fileID: 7415519936193646995}
   - component: {fileID: 7415519936193646988}
+  - component: {fileID: 6592992079039205425}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: dontdestroy
@@ -138,3 +139,17 @@ MonoBehaviour:
   currentPlayerPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 520808844518992133, guid: a354cfd6fe2f2064bb9b0186664e8627,
     type: 3}
+--- !u!136 &6592992079039205425
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415519936193646989}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.57991695
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: -0.0017535686, y: 0, z: -0.010603905}

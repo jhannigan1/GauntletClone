@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Wizard : BasePlayer
 {
+    public static Wizard wizard;
+
     public GameObject projectile;
+
+    private void Awake()
+    {
+        wizard = this;
+    }
 
     // Start is called before the first frame update
     void Start()

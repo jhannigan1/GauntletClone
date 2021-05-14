@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Valkyrie : BasePlayer
 {
+    public static Valkyrie valkyrie;
+
     public GameObject projectile;
+
+    private void Awake()
+    {
+        valkyrie = this;
+    }
 
     // Start is called before the first frame update
     void Start()

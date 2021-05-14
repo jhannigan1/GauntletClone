@@ -6,7 +6,6 @@ public class Door : MonoBehaviour
 {
     public GameObject[] attachedDoors;
 
-    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Elf" && Elf.elf.keys > 0)
@@ -30,7 +29,6 @@ public class Door : MonoBehaviour
             OpenDoors();
         }
     }
-    */
 
     public void OpenDoors()
     {
