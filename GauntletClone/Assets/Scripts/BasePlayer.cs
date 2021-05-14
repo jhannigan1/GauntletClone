@@ -236,9 +236,13 @@ abstract public class BasePlayer : MonoBehaviour
         }
     }
 
+    //Currently only works if the character in position 0 is the player-controlled character (the elf, in our set-up)
     void SwitchScenes()
     {
-
+        GameManager.GM.players[0].SetActive(true);
+        GameManager.GM.players[1].SetActive(true);
+        GameManager.GM.players[2].SetActive(true);
+        GameManager.GM.players[3].SetActive(true);
         GameObject[] players = GameObject.FindGameObjectsWithTag("dontdestroy");
         foreach(GameObject dontdestroy in players)
         {
@@ -246,7 +250,10 @@ abstract public class BasePlayer : MonoBehaviour
             dontdestroy.transform.position = new Vector3(0, 0, 0);
         }
         Camera cam = GameObject.FindObjectOfType<Camera>();
-        cam.transform.position = new Vector3(0, 10, 0);
+        cam.transform.position = new Vector3(0, 25, 0);
         SceneManager.LoadScene(sceneNumber);
+        GameManager.GM.players[1].SetActive(false);
+        GameManager.GM.players[2].SetActive(false);
+        GameManager.GM.players[3].SetActive(false);
     }
 }

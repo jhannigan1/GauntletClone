@@ -81,10 +81,12 @@ public class CanvasManager : MonoBehaviour
             elfKeys.text = "Keys: " + elfPlayer.gameObject.GetComponent<Elf>().keys;
             elfPotions.text = "Potions: " + elfPlayer.gameObject.GetComponent<Elf>().potions;
         }
+        /*
         if (warriorPlayer.gameObject.GetComponent<Warrior>().capMet || valkyriePlayer.gameObject.GetComponent<Valkyrie>().capMet
             || wizardPlayer.gameObject.GetComponent<Wizard>().capMet || elfPlayer.gameObject.GetComponent<Elf>().capMet)
         {
             win.text = "You Win!";
         }
+        */
     }
 }
