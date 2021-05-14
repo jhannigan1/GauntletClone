@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2409166839460519606}
   - component: {fileID: 2409166839460519601}
   - component: {fileID: 4483521340497883540}
+  - component: {fileID: -5577923131228318929}
   m_Layer: 0
   m_Name: Sorcerer
   m_TagString: enemy
@@ -111,3 +112,19 @@ MonoBehaviour:
   blinkRateMin: 0.5
   blinkRateMax: 5
   blinkDuration: 0.5
+--- !u!54 &-5577923131228318929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409166839460519600}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
